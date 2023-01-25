@@ -23,11 +23,9 @@ public class StatsService {
     }
 
     public long salesAverage(long[] sales) {
-        long lastMonth = 0;
-        for (int i = 0; i < sales.length; i = i + 1) {
-            lastMonth = lastMonth + sales[i];
-        }
-        long averageSales = lastMonth / sales.length;
+        long summary = salesSummary(sales);
+
+        long averageSales = summary / sales.length;
         return averageSales;
     }
 
@@ -44,11 +42,7 @@ public class StatsService {
     }
 
     public long salesBeyondAverage(long[] sales) {
-        long lastMonth = 0;
-        for (int i = 0; i < sales.length; i = i + 1) {
-            lastMonth = lastMonth + sales[i];
-        }
-        long averageSales = lastMonth / sales.length;
+        long averageSales = salesAverage(sales);
         int beyoundAverage = 0;
         for (int i = 0; i < sales.length; i = i + 1) {
             if (sales[i] < averageSales) {
@@ -59,11 +53,7 @@ public class StatsService {
     }
 
     public long salesAboveAverage(long[] sales) {
-        long lastMonth = 0;
-        for (int i = 0; i < sales.length; i = i + 1) {
-            lastMonth = lastMonth + sales[i];
-        }
-        long averageSales = lastMonth / sales.length;
+        long averageSales = salesAverage(sales);
         int aboveAverage = 0;
         for (int i = 0; i < sales.length; i = i + 1) {
             if (sales[i] < averageSales) {
@@ -72,4 +62,6 @@ public class StatsService {
         }
         return aboveAverage;
     }
+
+
 }
