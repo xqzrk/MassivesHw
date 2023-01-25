@@ -56,7 +56,7 @@ public class StatsService {
         long averageSales = salesAverage(sales);
         int aboveAverage = 0;
         for (int i = 0; i < sales.length; i = i + 1) {
-            if (sales[i] < averageSales) {
+            if (sales[i] > averageSales) {
                 aboveAverage = aboveAverage + 1;
             }
         }
